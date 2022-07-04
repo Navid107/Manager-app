@@ -1,21 +1,22 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"/>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" style="color:white;">Employee Manager</a>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #100329;">
+  <a class="navbar-brand" style="color: #faf9fa;">Scout Manager</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarColor02">
      <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-           <a class="nav-link" (click)="onOpenModal('add')">Add Employee <span class="sr-only">(current)</span></a>
+           <a class="nav-link" (click)="onOpenModal('add')">Add New Player <span class="sr-only">(current)</span></a>
         </li>
      </ul>
      <form class="form-inline my-2 my-lg-0">
         <input type="search" (ngModelChange)="searchEmployees(key.value)" #key="ngModel" ngModel
-         name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search employees..." required>
+         name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search player..." required>
      </form>
   </div>
 </nav>
+<div class="body-container">
 <div class="container" id="main-container">
     <div class="row">
         <div *ngFor="let employee of employees" class="col-md-6 col-xl-3">
@@ -26,29 +27,29 @@
                     </div>
                     <div class="col-6 card-title align-self-center mb-0">
                         <h5>{{employee?.name}}</h5>
-                        <p class="m-0">{{employee?.jobTitle}}</p>
-                    </div>
+                       </div>
                 </div>
                 <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><i class="fa fa-cog float-right"></i>Position : <a href="#">{{employee?.jobTitle}}</a></li>
                     <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Email : <a href="#">{{employee?.email}}</a></li>
                     <li class="list-group-item"><i class="fa fa-phone float-right"></i>Phone : {{employee?.phone}}</li>
                 </ul>
                 <div class="card-body">
                     <div class="float-right btn-group btn-group-sm">
-                        <a (click)="onOpenModal('edit', employee)" class="btn btn-primary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
-                        <a (click)="onOpenModal('delete', employee)" class="btn btn-secondary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                        <a (click)="onOpenModal('edit', employee)" class="btn btn-primary tooltips" style="color: #faf9fa;" data-placement="top" data-toggle="tooltip" data-original-title="Edit"> Edit <i class="fa fa-pencil"></i> </a>
+                        <a (click)="onOpenModal('delete', employee)" class="btn btn-secondary tooltips" style="color: #faf9fa;" data-placement="top" data-toggle="tooltip" data-original-title="Delete"> Delete <i class="fa fa-times"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+   </div>
     <!-- Add Employee Modal -->
     <div class="modal fade" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
            <div class="modal-header">
-              <h5 class="modal-title" id="addEmployeeModalLabel">Add Employee</h5>
+              <h5 class="modal-title" id="addEmployeeModalLabel">Add Player</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
               </button>
@@ -60,12 +61,12 @@
                  <input type="text" ngModel name="name" class="form-control" id="name" placeholder="Name" required>
               </div>
               <div class="form-group">
-                 <label for="email">Email Address</label>
+                 <label for="email">Email</label>
                  <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Email" required>
               </div>
               <div class="form-group">
-                 <label for="phone">Job title</label>
-                 <input type="text" ngModel name="jobTitle" class="form-control" id="jobTile" placeholder="Job title" required>
+                 <label for="phone">Position</label>
+                 <input type="text" ngModel name="jobTitle" class="form-control" id="jobTile" placeholder="Position" required>
               </div>
               <div class="form-group">
                  <label for="phone">Phone</label>
@@ -90,7 +91,7 @@
       <div class="modal-dialog" role="document">
          <div class="modal-content">
             <div class="modal-header">
-               <h5 class="modal-title" id="updateEmployeeModalLabel">Edit Employee {{editEmployee?.name}}</h5>
+               <h5 class="modal-title" id="updateEmployeeModalLabel">Edit Player {{editEmployee?.name}}</h5>
                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                <span aria-hidden="true">&times;</span>
                </button>
@@ -104,12 +105,12 @@
                   <input type="hidden" ngModel="{{editEmployee?.id}}" name="id" class="form-control" id="id" placeholder="Email">
                   <input type="hidden" ngModel="{{editEmployee?.employeeCode}}" name="userCode" class="form-control" id="userCode" placeholder="Email">
                   <div class="form-group">
-                     <label for="email">Email Address</label>
+                     <label for="email">Email</label>
                      <input type="email" ngModel="{{editEmployee?.email}}" name="email" class="form-control" id="email" placeholder="Email">
                   </div>
                   <div class="form-group">
-                     <label for="phone">Job title</label>
-                     <input type="text" ngModel="{{editEmployee?.jobTitle}}" name="jobTitle" class="form-control" id="jobTitle" placeholder="Job title">
+                     <label for="phone">Position</label>
+                     <input type="text" ngModel="{{editEmployee?.jobTitle}}" name="jobTitle" class="form-control" id="Position" placeholder="Job title">
                   </div>
                   <div class="form-group">
                      <label for="phone">Phone</label>
@@ -134,13 +135,13 @@
       <div class="modal-dialog" role="document">
          <div class="modal-content">
             <div class="modal-header">
-               <h5 class="modal-title" id="deleteModelLabel">Delete Employee</h5>
+               <h5 class="modal-title" id="deleteModelLabel">Delete Player</h5>
                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                <span aria-hidden="true">&times;</span>
                </button>
             </div>
             <div class="modal-body">
-               <p>Are you sure you want to delete employee {{deleteEmployee?.name}}?</p>
+               <p>Are you sure you want to delete Player {{deleteEmployee?.name}}?</p>
                <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                   <button (click)="onDeleteEmployee(deleteEmployee!.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
@@ -150,11 +151,13 @@
       </div>
     </div>
 
+  
+      
     <!-- Notification for no employees -->
   <div *ngIf="employees?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
     <div class="alert alert-info" role="alert">
-      <h4 class="alert-heading">NO EMPLOYEES!</h4>
-      <p>No Employees were found.</p>
+      <h4 class="alert-heading">NO Player!</h4>
+      <p>No Player were found.</p>
     </div>
   </div>
 </div>

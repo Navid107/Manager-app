@@ -1,8 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
 @import 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css';
 @import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
 
-body{margin-top:20px;}
+body{
+  margin-top:20px;
+  background-image: url("https://i.ibb.co/yp8Mp9W/EXa-YFk-CXs-AEm-OBH.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+}
 
 .team-list img {
   width: 50%;
@@ -118,4 +122,27 @@ body{margin-top:20px;}
 .section-title .title {
     letter-spacing: 0.5px;
     font-size: 30px;
+}
+.container {
+    padding: 10px;
+    width: auto;
+    height: auto px;
+    
+}
+.card {
+  background-color:rgb(249, 247, 237);
+  border-radius: 25px;
+  margin: 5px;
+}
+.list-group-item {
+  background-color: rgb(249, 247, 237);
+  
+}
+.img-fluid{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 5px solid #272133;
+  margin-top: 20px;
+  box-shadow: 0px 0px 10px 10px rgb(197, 223, 221);
 }
