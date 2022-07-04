@@ -1,4 +1,4 @@
-## The Management App
+## The Scout Management App
 This app will help you to keep tracking of your Players and their informations.
 
 # Technologies Used:
